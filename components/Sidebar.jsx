@@ -4,6 +4,7 @@ import Logout from "./Logout";
 import Image from "next/image";
 import Username from "./Username";
 import SidebarItem from "./SidebarItem";
+import DarkModeToggle from "./DarkModeToggle";
 
 const Sidebar = ({ children }) => {
   return (
@@ -13,16 +14,14 @@ const Sidebar = ({ children }) => {
         <div className="drawer-content flex flex-col items-start justify-center">
           <label
             htmlFor="my-drawer-2"
-            className="btn btn-ghost drawer-button lg:hidden"
-          >
+            className="btn btn-ghost drawer-button lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="2"
               stroke="currentColor"
-              className="w-6 h-6"
-            >
+              className="w-6 h-6">
               <path
                 color="maroon"
                 strokeLinecap="round"
@@ -39,16 +38,14 @@ const Sidebar = ({ children }) => {
           <label
             htmlFor="my-drawer-2"
             aria-label="close sidebar"
-            className="drawer-overlay"
-          ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-white text-base-content">
+            className="drawer-overlay"></label>
+          <ul className="menu p-4 w-80 min-h-full bg-base-100 text-base-content">
             <Image
               src="/utm-logo.png"
               width={200}
               height={200}
               alt="utm-logo"
-              className="mb-10 mx-auto"
-            ></Image>
+              className="mb-10 mt-15 mx-auto"></Image>
             <li className="mb-5 bg-alpha rounded-lg">
               <Username />
             </li>
@@ -77,7 +74,7 @@ const Sidebar = ({ children }) => {
               }
             />
             <SidebarItem
-              item="Timetable"
+              item="My Timetable"
               link="/timetable"
               path={
                 <path
@@ -88,8 +85,19 @@ const Sidebar = ({ children }) => {
               }
             />
             <SidebarItem
+              item="Search User Timetable"
+              link="/search-user-timetable"
+              path={
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              }
+            />
+            <SidebarItem
               item="Lecturer"
-              link="/lecturer"
+              link="/lecturers"
               path={
                 <path
                   strokeLinecap="round"

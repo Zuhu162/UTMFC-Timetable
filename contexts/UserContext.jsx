@@ -73,8 +73,7 @@ const UserContextProvider = ({ children }) => {
         setSessionInfo,
         courses,
         setCourses,
-      }}
-    >
+      }}>
       {children}
     </UserContext.Provider>
   );

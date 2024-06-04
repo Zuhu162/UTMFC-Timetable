@@ -2,7 +2,7 @@ import React from "react";
 
 const Accordion = (props) => {
   return (
-    <div className="bg-white join join-vertical w-full h-[100%]">
+    <div className="bg-base-100 join join-vertical w-full h-[100%]">
       <div className="collapse collapse-arrow join-item border-b-2 border-base-500 rounded-none">
         <input type="radio" name="my-accordion-4" defaultChecked />
         <div className="collapse-title text-md flex font-medium text-alpha">

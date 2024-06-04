@@ -104,7 +104,7 @@ const page = () => {
         </label>
         <button
           type="submit"
-          className="w-1/3 btn bg-maroon text-white hover:bg-red-950"
+          className="w-1/3 btn bg-maroon text-base-100 hover:bg-red-950"
           onClick={login}
         >
           Login
