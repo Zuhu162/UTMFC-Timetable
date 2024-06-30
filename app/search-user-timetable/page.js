@@ -42,7 +42,7 @@ const Page = () => {
           onChange={(e) => setMatric(e.currentTarget.value)}
         />
         <button className="btn text-base-100 bg-alpha" onClick={getData}>
-          Search
+          Quick Search
         </button>
       </div>
       {error && <div className="text-red-500">{error}</div>}

@@ -96,7 +96,7 @@ const Sidebar = ({ children }) => {
               }
             />
             <SidebarItem
-              item="Lecturer"
+              item="Lecturers"
               link="/lecturers"
               path={
                 <path

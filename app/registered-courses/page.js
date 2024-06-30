@@ -11,7 +11,6 @@ const columns = [
   { id: "seksyen", label: "Section", align: "center" },
   { id: "semester", label: "Semester", minWidth: 170, align: "center" },
   { id: "sesi", label: "Session", minWidth: 170, align: "center" },
-  { id: "status", label: "Status", minWidth: 170, align: "center" },
   { id: "tahun_kursus", label: "Course Year", minWidth: 170, align: "center" },
 ];
 
@@ -40,7 +39,12 @@ const Page = (props) => {
   return (
     <div className="container w-full p-2">
       <div className="bg-base-100 p-2 md:p-10 min-h-[600px]">
-        <Table columns={columns} rows={courses} />
+        <Table
+          columns={columns}
+          rows={courses}
+          searchValue={"nama_subjek"}
+          searchBarValue="Search course by name"
+        />
       </div>
     </div>
   );

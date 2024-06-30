@@ -3,6 +3,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/contexts/UserContext";
 
+//props.variant = search
+//props.courses
+
 const GenerateTimeTable = (props) => {
   const { sessionInfo, courses } = useContext(UserContext);
   const [pageCourses, setPageCourses] = useState([]);
@@ -54,6 +57,7 @@ const GenerateTimeTable = (props) => {
   }, [latestCourses, latestSem]);
 
   useEffect(() => {
+    console.log(latestCourseTimings);
     if (latestCourseTimings.length > 0) {
       const newTimetable = {};
       latestCourseTimings.forEach((courseTimings) => {
@@ -62,6 +66,7 @@ const GenerateTimeTable = (props) => {
           if (!newTimetable[courseKey]) {
             newTimetable[courseKey] = {
               courseCode: ct.kod_subjek,
+              section: ct.seksyen,
               day: ct.hari,
               timings: [],
             };
@@ -103,6 +108,10 @@ const GenerateTimeTable = (props) => {
                   {course.courseCode}
                 </p>
                 <hr className="mb-2 text-prime" />
+                <p>
+                  <span className="font-semibold">Section: </span>
+                  {course.section}
+                </p>
                 <p>
                   <span className="font-semibold">Day: </span>
                   {getDayName(course.day)}
