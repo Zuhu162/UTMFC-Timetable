@@ -1,9 +1,7 @@
-"use client";
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import GenerateTimeTable from "@/components/GenerateTimeTable";
-
-const Page = () => {
+const QuickSearch = () => {
   const [matric, setMatric] = useState("");
   const [courses, setCourses] = useState([]);
   const [error, setError] = useState("");
@@ -31,19 +29,26 @@ const Page = () => {
     }
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    getData();
+  };
+
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-start">
-      <div className="flex mt-10 mb-10">
-        <input
-          type="text"
-          placeholder="Type Matric Number"
-          className="input input-bordered w-full max-w-xs"
-          value={matric}
-          onChange={(e) => setMatric(e.currentTarget.value)}
-        />
-        <button className="btn text-base-100 bg-alpha" onClick={getData}>
-          Quick Search
-        </button>
+    <div className="w-full min-h-screen flex flex-col items-center justify-start">
+      <div className="flex mb-10">
+        <form className="flex" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Type Matric Number"
+            className="input input-bordered w-full max-w-xs"
+            value={matric}
+            onChange={(e) => setMatric(e.currentTarget.value)}
+          />
+          <button className="btn text-base-100 bg-alpha" type="submit">
+            Quick Search
+          </button>
+        </form>
       </div>
       {error && <div className="text-red-500">{error}</div>}
       {courses.length > 0 ? (
@@ -55,4 +60,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default QuickSearch;

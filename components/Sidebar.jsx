@@ -1,10 +1,8 @@
-import Link from "next/link";
 import React from "react";
 import Logout from "./Logout";
 import Image from "next/image";
 import Username from "./Username";
 import SidebarItem from "./SidebarItem";
-import DarkModeToggle from "./DarkModeToggle";
 
 const Sidebar = ({ children }) => {
   return (
@@ -62,7 +60,7 @@ const Sidebar = ({ children }) => {
               }
             />
             <SidebarItem
-              item="Courses"
+              item="My Courses"
               link="/courses"
               path={
                 <path
@@ -85,8 +83,8 @@ const Sidebar = ({ children }) => {
               }
             />
             <SidebarItem
-              item="Search User Timetable"
-              link="/search-user-timetable"
+              item="Search Student Timetable"
+              link="/search-student-timetable"
               path={
                 <path
                   strokeLinecap="round"

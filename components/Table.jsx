@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
+import TableLoadingSkeleton from "./Skeletons/TableLoadingSkeleton";
 
-//props - 1. props.rows to render
-//2. props.searchValue
 const Table = (props) => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
@@ -13,33 +12,34 @@ const Table = (props) => {
     setSearchValue(props.searchValue);
   }, [props.rows, props.searchValue]);
 
-  // Calculate total number of pages
-  const totalPages = Math.ceil(props.rows.length / 10);
-
-  // Calculate starting and ending index of current page
-  const startIndex = (page - 1) * 10;
-  const endIndex = Math.min(startIndex + 10, props.rows.length);
-
   // Function to handle page change
   const handlePageChange = (newPage) => {
     setPage(newPage);
   };
 
-  //Search function
+  // Search function
   const onSearch = (value) => {
     setSearch(value);
     if (value) {
-      const filtered = props.rows.filter((l) =>
+      const filteredResults = props.rows.filter((l) =>
         l[searchValue].toLowerCase().includes(value.toLowerCase())
       );
-      setFiltered(filtered);
+      setFiltered(filteredResults);
     } else {
       setFiltered(props.rows); // Reset to default value if search is empty
     }
+    setPage(1); // Reset to the first page whenever the search value changes
   };
 
+  // Calculate total number of pages
+  const totalPages = Math.ceil(filtered.length / 10);
+
+  // Calculate starting and ending index of current page
+  const startIndex = (page - 1) * 10;
+  const endIndex = Math.min(startIndex + 10, filtered.length);
+
   return (
-    <div className="min-h-[600px] flex flex-col justify-between">
+    <div className="w-full min-h-[600px] flex flex-col justify-start">
       <input
         onChange={(e) => onSearch(e.currentTarget.value)}
         type="text"

@@ -41,6 +41,7 @@ const DarkModeToggle = () => {
           type="checkbox"
           value="synthwave"
           className="toggle theme-controller"
+          checked={theme === "night"}
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"

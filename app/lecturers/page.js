@@ -7,6 +7,7 @@ import Link from "next/link";
 
 const page = () => {
   const [lecturers, setLecturers] = useState([]);
+  const [loading, setLoading] = useState(true); // State to track loading status
   const { session } = useContext(UserContext);
 
   const currentSession = session;
@@ -45,8 +46,10 @@ const page = () => {
 
         if (response.data && Array.isArray(response.data)) {
           setLecturers(response.data);
+          setLoading(false);
         } else {
           console.error("Unexpected response format:");
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching lecturers:", error);
@@ -80,14 +83,21 @@ const page = () => {
   ];
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container w-3/4 mx-auto p-4 mt-10">
       <div className="card bg-base-100 p-5">
-        <Table
-          columns={columns}
-          rows={lecturers}
-          searchValue={"nama"}
-          searchBarValue="Search lecturer name"
-        />
+        {loading ? (
+          <div className="w-full flex flex-col items-center justify-center">
+            <p>Fetching All Lecturers </p>
+            <span className="loading loading-spinner text-alpha" />
+          </div>
+        ) : (
+          <Table
+            columns={columns}
+            rows={lecturers}
+            searchValue={"nama"}
+            searchBarValue="Search lecturer name"
+          />
+        )}
       </div>
     </div>
   );
