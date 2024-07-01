@@ -5,7 +5,7 @@ import axios from "axios";
 import Table from "@/components/Table";
 import Link from "next/link";
 
-const page = () => {
+const Page = () => {
   const [lecturers, setLecturers] = useState([]);
   const [loading, setLoading] = useState(true); // State to track loading status
   const { session } = useContext(UserContext);
@@ -103,4 +103,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

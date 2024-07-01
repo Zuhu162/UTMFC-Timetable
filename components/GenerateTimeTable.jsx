@@ -93,8 +93,8 @@ const GenerateTimeTable = (props) => {
   return (
     <div className="w-3/4 flex flex-col md:grid md:grid-cols-2 gap-2">
       {latestCourses.length === 0 ? (
-        <div className="w-full flex justify-center text-center">
-          No courses to show this semester
+        <div className="w-full p-3 flex justify-center text-center">
+          No courses found for the current session and semester.
         </div>
       ) : (
         courseTimetable
@@ -102,7 +102,7 @@ const GenerateTimeTable = (props) => {
           .map((course) => (
             <div
               key={`${course.courseCode}-${course.day}`}
-              className="card w-full bg-base-100 shadow-xl p-10">
+              className="card w-full bg-base-100 p-10">
               <div className="flex flex-col gap-1">
                 <p className="text-center font-semibold text-alpha">
                   {course.courseCode}

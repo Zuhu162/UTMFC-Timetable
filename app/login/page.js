@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import DarkModeToggle from "@/components/DarkModeToggle";
 
-const page = () => {
+const Page = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -126,4 +126,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

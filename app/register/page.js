@@ -1,7 +1,7 @@
 import Welcome from "@/components/Welcome";
 import React from "react";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="text-alpha flex bg-base-100 w-3/4 h-auto flex-col items-center justify-center gap-2 md:p-24">
       <p className="font-semibold">Add/Edit Course</p>
@@ -29,4 +29,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

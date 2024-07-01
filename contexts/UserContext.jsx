@@ -16,13 +16,15 @@ const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const storedAppStorage = JSON.parse(
-        sessionStorage.getItem("web_fc_utm_my_ttms")
-      );
-      if (storedAppStorage) {
-        setUser(storedAppStorage);
-      } else {
-        router.push("/login");
+      if (typeof window !== "undefined") {
+        const storedAppStorage = JSON.parse(
+          sessionStorage.getItem("web_fc_utm_my_ttms")
+        );
+        if (storedAppStorage) {
+          setUser(storedAppStorage);
+        } else {
+          router.push("/login");
+        }
       }
     };
     fetchData();
@@ -34,7 +36,7 @@ const UserContextProvider = ({ children }) => {
       setSession(result.data[0]);
     };
     fetchSessionData();
-  }, [sessionStorage.getItem("web_fc_utm_my_ttms")]);
+  }, []);
 
   useEffect(() => {
     const getData = async () => {

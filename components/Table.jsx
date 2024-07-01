@@ -47,29 +47,31 @@ const Table = (props) => {
         className="input input-bordered w-full max-w-xs mb-4"
         value={search}
       />
-      <div className="overflow-x-auto rounded-2xl mb-5">
-        <table className="table">
-          <thead className="bg-base-100">
-            <tr>
-              {props.columns.map((column) => (
-                <th key={column.id} scope="col">
-                  {column.label}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="bg-base-100 text-alpha font-medium">
-            {filtered.slice(startIndex, endIndex).map((row, rowIndex) => (
-              <tr key={startIndex + rowIndex} className="rounded-xl">
+      <div>
+        <div className="overflow-x-auto rounded-2xl mb-5">
+          <table className="table">
+            <thead className="bg-base-100">
+              <tr>
                 {props.columns.map((column) => (
-                  <td key={`${startIndex + rowIndex}-${column.id}`}>
-                    {column.render ? column.render(row) : row[column.id]}
-                  </td>
+                  <th key={column.id} scope="col">
+                    {column.label}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="bg-base-100 text-alpha font-medium">
+              {filtered.slice(startIndex, endIndex).map((row, rowIndex) => (
+                <tr key={startIndex + rowIndex} className="rounded-xl">
+                  {props.columns.map((column) => (
+                    <td key={`${startIndex + rowIndex}-${column.id}`}>
+                      {column.render ? column.render(row) : row[column.id]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       <div>
         <button

@@ -6,7 +6,7 @@ import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 
-const LecturerPage = ({ params }) => {
+const Page = ({ params }) => {
   const [lecturer, setLecturer] = useState([]);
   const { sessionInfo } = useContext(UserContext);
   const [latestCourses, setLatestCourses] = useState([]);
@@ -40,7 +40,7 @@ const LecturerPage = ({ params }) => {
   }, [params.lecturerID, lecturerName]);
 
   return (
-    <div className="w-3/4 flex flex-col items-center">
+    <div className="w-full flex flex-col items-center">
       {latestCourses.length > 0 ? (
         <div className="w-3/4 card bg-base-100 p-3 flex flex-col items-center shadow-xl mb-10">
           <p className="font-semibold">
@@ -48,11 +48,13 @@ const LecturerPage = ({ params }) => {
           </p>
         </div>
       ) : (
-        <p>No courses found for the current session and semester.</p>
+        <div className="w-3/4 card bg-base-100 p-3 flex flex-col items-center shadow-xl mb-10">
+          <p>Error fetching data</p>
+        </div>
       )}
       <GenerateTimeTable variant="search" courses={latestCourses} />
     </div>
   );
 };
 
-export default LecturerPage;
+export default Page;

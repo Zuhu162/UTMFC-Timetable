@@ -2,14 +2,20 @@
 import React, { useEffect, useState } from "react";
 
 const DarkModeToggle = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  );
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    } else {
+      return "light";
+    }
+  });
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    const localTheme = localStorage.getItem("theme");
-    document.querySelector("html").setAttribute("data-theme", localTheme);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", theme);
+      const localTheme = localStorage.getItem("theme");
+      document.querySelector("html").setAttribute("data-theme", localTheme);
+    }
   }, [theme]);
 
   const handleToggleTheme = (e) => {

@@ -42,7 +42,7 @@ const Page = ({ params }) => {
   }, [params.studentID, studentName, sessionInfo]);
 
   return (
-    <div className="w-3/4 flex flex-col justify-center items-center">
+    <div className="w-full flex flex-col justify-center items-center mt-10">
       {latestCourses.length > 0 ? (
         <div className="w-3/4 card bg-base-100 p-3 flex flex-col items-center shadow-xl mb-10">
           <p className="font-semibold">

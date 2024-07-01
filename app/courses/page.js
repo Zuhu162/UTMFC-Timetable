@@ -4,7 +4,7 @@ import { UserContext } from "@/contexts/UserContext";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 
-const page = () => {
+const Page = () => {
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState({});
   const { user } = useContext(UserContext);
@@ -102,4 +102,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
