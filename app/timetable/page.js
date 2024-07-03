@@ -1,12 +1,11 @@
 "use client";
 
 import GenerateTimeTable from "@/components/GenerateTimeTable";
-import { UserContext } from "@/contexts/UserContext";
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 
 const Page = () => {
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full xl:w-3/4 flex justify-center">
       <GenerateTimeTable />
     </div>
   );

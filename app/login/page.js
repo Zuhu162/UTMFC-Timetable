@@ -58,7 +58,10 @@ const Page = () => {
 
       // Redirect to the desired route upon successful login
       router.push("/");
-      router.refresh(""); // This line seems redundant, consider removing it
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
     } catch (error) {
       console.error("Invalid ID or Password", error);
       alert("Invalid ID or Password");
@@ -66,9 +69,9 @@ const Page = () => {
   };
 
   return (
-    <div className="w-full h-screen p-2 flex justify-center items-center">
+    <div className="w-full h-screen flex justify-center items-center">
       <DarkModeToggle />
-      <div className="card card-compact bg-base-100 shadow-xl w-full sm:w-2/3 md:w-1/2 xl:w-1/4 h-[500px] py-10 flex items-center">
+      <div className="card card-compact bg-base-100 shadow-xl w-full sm:w-2/3 md:w-1/2 2xl:w-1/4 h-[500px] py-10 flex items-center">
         <Image
           src="/utm-logo.png"
           width={250}
@@ -92,7 +95,7 @@ const Page = () => {
                 onChange={(e) => setUsername(e.currentTarget.value)}
                 type="text"
                 className="grow border-b-2 border-grey "
-                placeholder="Username"
+                placeholder="Matric"
               />
             </label>
             <label className="w-full justify-center input flex items-center gap-2">
@@ -116,7 +119,7 @@ const Page = () => {
             </label>
             <button
               type="submit"
-              className="w-1/3 btn bg-maroon text-base-100 hover:bg-red-950">
+              className="w-1/3 btn bg-alpha text-base-100 hover:bg-red-950">
               Login
             </button>
           </div>

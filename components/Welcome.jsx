@@ -9,18 +9,28 @@ const Welcome = () => {
   const { session, setSession } = useContext(UserContext);
 
   return (
-    <div className="bg-base-100 shadow-xl w-full md:w-3/4 h-[300px] flex justify-center items-center rounded-2xl text-alpha p-10 font-semibold">
+    <div className="w-full bg-base-100 shadow-xl h-[300px] flex justify-center items-center rounded-2xl text-alpha p-10 font-semibold">
       <div className="w-full max-w-md gap-2 text-center">
         {user.user_auth ? (
-          <div className="mb-5">Welcome {user.user_auth.full_name}</div>
+          <div>
+            <div className="mb-5">
+              <p>Welcome {user.user_auth.full_name}</p>
+              <p>Matric: {user.user_auth.login_name}</p>
+            </div>
+            <hr />
+            <div className="mt-5">
+              <p>Session: {session.sesi}</p>
+              <p>Semester: {session.semester}</p>
+              <p>
+                Start/End Date: {session.tarikh_mula} / {session.tarikh_tamat}
+              </p>
+            </div>
+          </div>
         ) : (
-          <div>No user information available</div>
+          <div className="w-full flex flex-col items-center justify-center">
+            <span className="loading loading-spinner text-alpha" />
+          </div>
         )}
-        <div>Session: {session.sesi}</div>
-        <div>Semester: {session.semester}</div>
-        <div>
-          Start/End Date: {session.tarikh_mula} / {session.tarikh_tamat}
-        </div>
       </div>
     </div>
   );

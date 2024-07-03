@@ -13,7 +13,7 @@ const Sidebar = ({ children }) => {
           <label
             htmlFor="my-drawer-2"
             className="btn btn-ghost drawer-button lg:hidden">
-            <svg
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -25,6 +25,21 @@ const Sidebar = ({ children }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg> */}
+            <svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              className="w-6 h-6">
+              <path
+                stroke="maroon"
+                strokeLinecap="round"
+                strokeWidth="2"
+                d="M5 7h14M5 12h14M5 17h10"
               />
             </svg>
           </label>

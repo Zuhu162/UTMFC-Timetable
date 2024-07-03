@@ -8,7 +8,6 @@ import { UserContext } from "@/contexts/UserContext";
 
 const GenerateTimeTable = (props) => {
   const { sessionInfo, courses } = useContext(UserContext);
-  const [pageCourses, setPageCourses] = useState([]);
   const [latestSem, setLatestSem] = useState({});
   const [latestCourses, setLatestCourses] = useState([]);
   const [latestCourseTimings, setLatestCourseTimings] = useState([]);
@@ -91,7 +90,7 @@ const GenerateTimeTable = (props) => {
   props.variant === "search" && props.course;
 
   return (
-    <div className="w-3/4 flex flex-col md:grid md:grid-cols-2 gap-2">
+    <div className="w-full flex flex-col md:grid md:grid-cols-2 gap-2">
       {latestCourses.length === 0 ? (
         <div className="w-full p-3 flex justify-center text-center">
           No courses found for the current session and semester.

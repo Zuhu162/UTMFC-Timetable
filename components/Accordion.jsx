@@ -10,7 +10,7 @@ const Accordion = (props) => {
         </div>
         <div className="collapse-content max-h-96 overflow-auto">
           {props.courses.map((course) => (
-            <div className="p-2" key={course.kod_kursus}>
+            <div className="p-4" key={course.kod_kursus}>
               <p>Course Code:{course.kod_subjek}</p>
               <p>Course Name: {course.nama_subjek}</p>
               <p>Section: {course.seksyen}</p>

@@ -73,7 +73,7 @@ const Page = () => {
               pathname: `/lecturers/${row.no_pekerja}`,
               query: { name: row.nama },
             }}>
-            <button className="btn btn-sm bg-alpha text-white p-2">
+            <button className="btn btn-md md:btn-sm bg-alpha text-white p-2">
               View Timetable
             </button>
           </Link>
@@ -83,8 +83,8 @@ const Page = () => {
   ];
 
   return (
-    <div className="container w-3/4 mx-auto p-4 mt-10">
-      <div className="card bg-base-100 p-5">
+    <div className="w-full xl:w-3/4 mt-10">
+      <div className="card bg-base-100 p-4">
         {loading ? (
           <div className="w-full flex flex-col items-center justify-center">
             <p>Fetching All Lecturers </p>

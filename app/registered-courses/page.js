@@ -37,8 +37,8 @@ const Page = (props) => {
   }, [user]); // Depend on user
 
   return (
-    <div className="container w-full p-2">
-      <div className="bg-base-100 p-2 md:p-10 min-h-[600px]">
+    <div className="w-full xl:w-3/4">
+      <div className="bg-base-100 rounded-2xl p-4 md:p-10 min-h-[600px]">
         <Table
           columns={columns}
           rows={courses}

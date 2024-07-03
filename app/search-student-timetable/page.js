@@ -7,7 +7,7 @@ const Page = () => {
   const [searchCategory, setSearchCategory] = useState("matric");
 
   return (
-    <div className="w-full md:w-3/4 mt-10 min-h-screen flex flex-col justify-start items-center">
+    <div className="w-full xl:w-3/4 min-h-[80vh] mt-10 flex flex-col justify-start items-center">
       <div className="w-full mb-5 form-control card bg-base-100 p-4">
         <label className="label cursor-pointer">
           <span className="label-text">Quick Search By Matric</span>

@@ -85,15 +85,15 @@ const Page = () => {
   console.log("Grouped courses:", filteredCourses); // Debugging log
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="w-3/4">
+    <div className="w-full xl:w-3/4 flex flex-col items-center">
+      <div className="w-full">
         <Link href="/registered-courses">
           <button className="btn bg-alpha text-base-100 hover:bg-primeDark mb-5">
             View Course Table
           </button>
         </Link>
       </div>
-      <div className="bg-base-100 shadow-xl rounded-md w-full p-2 md:px-5 md:py-10 flex flex-col items-center justify-center md:w-3/4">
+      <div className="bg-base-100 shadow-xl rounded-md w-full p-4 md:px-5 md:py-10 flex flex-col items-center justify-center">
         {Object.keys(filteredCourses).map((key) => (
           <Accordion key={key} value={key} courses={filteredCourses[key]} />
         ))}

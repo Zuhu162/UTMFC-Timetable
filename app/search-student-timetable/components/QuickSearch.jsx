@@ -35,7 +35,7 @@ const QuickSearch = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-start">
+    <div className="w-full flex flex-col items-center">
       <div className="flex mb-10">
         <form className="flex" onSubmit={handleSubmit}>
           <input

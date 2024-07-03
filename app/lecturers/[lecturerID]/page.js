@@ -40,15 +40,15 @@ const Page = ({ params }) => {
   }, [params.lecturerID, lecturerName]);
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full xl:w-3/4 flex flex-col items-center">
       {latestCourses.length > 0 ? (
-        <div className="w-3/4 card bg-base-100 p-3 flex flex-col items-center shadow-xl mb-10">
+        <div className="w-full card bg-base-100 p-4 flex flex-col items-center shadow-xl mb-10">
           <p className="font-semibold">
             Lecturer Name: <span className="text-alpha ">{lecturerName}</span>
           </p>
         </div>
       ) : (
-        <div className="w-3/4 card bg-base-100 p-3 flex flex-col items-center shadow-xl mb-10">
+        <div className="w-full card bg-base-100 p-4 flex flex-col items-center shadow-xl mb-10">
           <p>Error fetching data</p>
         </div>
       )}

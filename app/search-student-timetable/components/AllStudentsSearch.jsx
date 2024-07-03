@@ -96,7 +96,7 @@ const AllStudentsSearch = () => {
 
   return (
     <div className="w-full container mx-auto">
-      <div className="card bg-base-100 p-5">
+      <div className="card bg-base-100 p-4">
         {loading ? (
           <div className="w-full flex flex-col items-center justify-center">
             <p>Fetching All Students </p>
