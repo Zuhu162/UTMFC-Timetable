@@ -29,9 +29,6 @@ const Page = () => {
 
         const adminSession_id = storedAppStorage.adminSession_id;
 
-        console.log("Admin Session ID:", adminSession_id); // Debugging: Log the session ID
-        console.log("Current Session:", currentSession); // Debugging: Log the current session
-
         const params = {
           entity: "pensyarah",
           session_id: adminSession_id,

@@ -81,7 +81,6 @@ const Page = () => {
     }
   }, [courses]); // Depend on courses and sessionInfo
 
-  console.log(sessionInfo);
   console.log("Grouped courses:", filteredCourses); // Debugging log
 
   return (

@@ -26,8 +26,6 @@ const AllStudentsSearch = () => {
         }
 
         const adminSession_id = storedAppStorage.adminSession_id;
-        console.log("Admin Session ID:", adminSession_id); // Debugging: Log the session ID
-        console.log("Current Session:", session); // Debugging: Log the current session
 
         let offset = 0;
         let allStudents = [];
@@ -47,7 +45,7 @@ const AllStudentsSearch = () => {
             { params }
           );
 
-          console.log("Response data:", response.data); // Debugging: Log the response data
+          // console.log("Response data:", response.data); // Debugging: Log the response data
 
           if (
             response.data &&

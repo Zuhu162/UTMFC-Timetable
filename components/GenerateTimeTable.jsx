@@ -12,6 +12,7 @@ const GenerateTimeTable = (props) => {
   const [latestCourses, setLatestCourses] = useState([]);
   const [latestCourseTimings, setLatestCourseTimings] = useState([]);
   const [courseTimetable, setCourseTimetable] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (sessionInfo) {
@@ -50,13 +51,13 @@ const GenerateTimeTable = (props) => {
 
         const results = await Promise.all(promises);
         setLatestCourseTimings(results);
+        setLoading(false); // Data fetching completed, stop loading
       };
       fetchData();
     }
   }, [latestCourses, latestSem]);
 
   useEffect(() => {
-    console.log(latestCourseTimings);
     if (latestCourseTimings.length > 0) {
       const newTimetable = {};
       latestCourseTimings.forEach((courseTimings) => {
@@ -87,51 +88,56 @@ const GenerateTimeTable = (props) => {
 
   console.log(courseTimetable);
 
-  props.variant === "search" && props.course;
-
   return (
-    <div className="w-full flex flex-col md:grid md:grid-cols-2 gap-2">
-      {latestCourses.length === 0 ? (
+    <>
+      {loading ? (
+        <div className="w-full flex flex-col items-center justify-center">
+          <p>Generating Timetable</p>
+          <span className="loading loading-spinner text-alpha" />
+        </div>
+      ) : latestCourses.length === 0 ? (
         <div className="w-full p-3 flex justify-center text-center">
           No courses found for the current session and semester.
         </div>
       ) : (
-        courseTimetable
-          .sort((a, b) => a.day - b.day)
-          .map((course) => (
-            <div
-              key={`${course.courseCode}-${course.day}`}
-              className="card w-full bg-base-100 p-10">
-              <div className="flex flex-col gap-1">
-                <p className="text-center font-semibold text-alpha">
-                  {course.courseCode}
-                </p>
-                <hr className="mb-2 text-prime" />
-                <p>
-                  <span className="font-semibold">Section: </span>
-                  {course.section}
-                </p>
-                <p>
-                  <span className="font-semibold">Day: </span>
-                  {getDayName(course.day)}
-                </p>
-                <p>
-                  <span className="font-semibold">Timing: </span>
-                  {formatTimings(course.timings)}
-                </p>
-                <p>
-                  <span className="font-semibold">Room: </span>
-                  {course.timings[0].room}
-                </p>
-                <p>
-                  <span className="font-semibold">Room Code: </span>
-                  {course.timings[0].roomCode}
-                </p>
+        <div className="w-full flex flex-col md:grid md:grid-cols-2 gap-2">
+          {courseTimetable
+            .sort((a, b) => a.day - b.day)
+            .map((course) => (
+              <div
+                key={`${course.courseCode}-${course.day}`}
+                className="card w-full bg-base-100 p-10">
+                <div className="flex flex-col gap-1">
+                  <p className="text-center font-semibold text-alpha">
+                    {course.courseCode}
+                  </p>
+                  <hr className="mb-2 text-prime" />
+                  <p>
+                    <span className="font-semibold">Section: </span>
+                    {course.section}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Day: </span>
+                    {getDayName(course.day)}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Timing: </span>
+                    {formatTimings(course.timings)}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Room: </span>
+                    {course.timings[0].room}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Room Code: </span>
+                    {course.timings[0].roomCode}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))
+            ))}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

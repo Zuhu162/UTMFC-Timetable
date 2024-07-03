@@ -43,15 +43,11 @@ const Page = ({ params }) => {
 
   return (
     <div className="w-full xl:w-3/4 mt-10 flex-col justify-center items-center">
-      {latestCourses.length > 0 ? (
-        <div className="w-full card bg-base-100 p-4 flex flex-col items-center shadow-xl mb-10">
-          <p className="font-semibold">
-            Student Name: <span className="text-alpha">{studentName}</span>
-          </p>
-        </div>
-      ) : (
-        <p>No courses found for the current session and semester.</p>
-      )}
+      <div className="w-full card bg-base-100 p-4 flex flex-col items-center shadow-xl mb-10">
+        <p className="font-semibold">
+          Student Name: <span className="text-alpha">{studentName}</span>
+        </p>
+      </div>
       <GenerateTimeTable variant="search" courses={latestCourses} />
     </div>
   );
