@@ -92,7 +92,7 @@ const Page = () => {
           </button>
         </Link>
       </div>
-      <div className="bg-base-100 shadow-xl rounded-md w-full p-4 md:px-5 md:py-10 flex flex-col items-center justify-center">
+      <div className="bg-base-100 shadow-xl rounded-xl w-full p-4 md:px-5 md:py-10 flex flex-col items-center justify-center">
         {Object.keys(filteredCourses).map((key) => (
           <Accordion key={key} value={key} courses={filteredCourses[key]} />
         ))}

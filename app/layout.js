@@ -7,7 +7,7 @@ import { UserContextProvider } from "@/contexts/UserContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "UTM FC | Timetable",
+  title: "UTM FK | Timetable",
   description: "Timetable for Faculty of Computing using UTM's own API",
 };
 

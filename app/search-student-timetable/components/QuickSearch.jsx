@@ -18,7 +18,7 @@ const QuickSearch = () => {
 
       const result = await response.json();
       if (result.length === 0) {
-        setError("User not found");
+        setError(`Student with Matric: ${matric} does not exist in FK System`);
       } else {
         setCourses(result);
         setError("");

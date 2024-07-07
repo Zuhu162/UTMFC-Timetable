@@ -7,7 +7,7 @@ import SidebarItem from "./SidebarItem";
 const Sidebar = ({ children }) => {
   return (
     <div>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open z-50">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-start justify-center">
           <label
@@ -49,14 +49,13 @@ const Sidebar = ({ children }) => {
               <Username />
             </li>
             <SidebarItem
-              item="Announcements"
+              item="Home"
               link="/"
               path={
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+                  d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
                 />
               }
             />
