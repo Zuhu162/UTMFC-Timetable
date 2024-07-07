@@ -18,7 +18,7 @@ export default function Home() {
   }, [user, router, checkAndRefresh]);
 
   if (!user || Object.keys(user).length === 0) {
-    return null; // or a loading indicator
+    return null;
   }
 
   return (
