@@ -2,7 +2,10 @@ export async function GET(request) {
   const url = new URL(request.url);
   const entity = url.searchParams.get("entity");
 
-  let apiUrl = "http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?";
+  // Check if we're in production (Vercel) or development
+  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
+
+  let apiUrl = `${protocol}://web.fc.utm.my/ttms/web_man_webservice_json.cgi?`;
 
   switch (entity) {
     case "authentication":
@@ -12,7 +15,7 @@ export async function GET(request) {
       break;
     case "auth-admin":
       const session_id = url.searchParams.get("session_id");
-      apiUrl = `http://web.fc.utm.my/ttms/auth-admin.php?session_id=${session_id}`;
+      apiUrl = `${protocol}://web.fc.utm.my/ttms/auth-admin.php?session_id=${session_id}`;
       break;
     case "pelajar_subjek":
       const no_matrik = url.searchParams.get("no_matrik");
