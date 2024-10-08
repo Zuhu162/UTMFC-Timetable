@@ -14,6 +14,60 @@ const Page = () => {
 
   const authUrl = "http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?";
 
+  // const login = async (event) => {
+  //   event.preventDefault();
+
+  //   const myAuth = {
+  //     entity: "authentication",
+  //     login: username,
+  //     password: password,
+  //   };
+
+  //   try {
+  //     const response = await axios.get(authUrl, {
+  //       params: myAuth,
+  //     });
+
+  //     const auth = response.data;
+
+  //     // Check if session_id is present in the authentication response
+  //     if (!auth[0]?.session_id) {
+  //       setError("Invalid ID or Password");
+  //       throw new Error("Invalid ID or Password");
+  //     }
+
+  //     // Store the session_id in sessionStorage or localStorage
+  //     const session_id = auth[0].session_id;
+  //     // Fetch adminSessionID
+  //     const adminAuthUrl = `http://web.fc.utm.my/ttms/auth-admin.php?session_id=${session_id}`;
+  //     const adminResponse = await axios.get(adminAuthUrl);
+  //     const adminSession_id = adminResponse.data[0].session_id;
+
+  //     const appStorage = {
+  //       user_auth: auth[0],
+  //       epoch_last: Date.now(),
+  //       session_id: session_id,
+  //       adminSession_id: adminSession_id,
+  //       data: {},
+  //     };
+
+  //     sessionStorage.setItem("web_fc_utm_my_ttms", JSON.stringify(appStorage));
+
+  //     console.log(appStorage.session_id);
+  //     console.log(appStorage.adminSession_id);
+
+  //     // Redirect to the desired route upon successful login
+  //     router.push("/");
+
+  //     setTimeout(() => {
+  //       window.location.reload();
+  //     }, 100);
+  //   } catch (error) {
+  //     console.error("Invalid ID or Password", error);
+  //     alert("Invalid ID or Password");
+  //   }
+  // };
+
   const login = async (event) => {
     event.preventDefault();
 
@@ -24,7 +78,8 @@ const Page = () => {
     };
 
     try {
-      const response = await axios.get(authUrl, {
+      // Change this line to call your proxy API
+      const response = await axios.get("/api/proxy", {
         params: myAuth,
       });
 
@@ -38,7 +93,8 @@ const Page = () => {
 
       // Store the session_id in sessionStorage or localStorage
       const session_id = auth[0].session_id;
-      // Fetch adminSessionID
+
+      // Fetch adminSessionID using the session_id
       const adminAuthUrl = `http://web.fc.utm.my/ttms/auth-admin.php?session_id=${session_id}`;
       const adminResponse = await axios.get(adminAuthUrl);
       const adminSession_id = adminResponse.data[0].session_id;
