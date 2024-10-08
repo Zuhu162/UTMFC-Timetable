@@ -3,11 +3,19 @@
 export async function GET(request) {
   const url = new URL(request.url);
   const entity = url.searchParams.get("entity");
-  const login = url.searchParams.get("login");
-  const password = url.searchParams.get("password");
 
-  // Use HTTP in the fetch, since we're not accessing the original API via HTTPS
-  const apiUrl = `http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=${entity}&login=${login}&password=${password}`;
+  let apiUrl;
+
+  if (entity === "authentication") {
+    const login = url.searchParams.get("login");
+    const password = url.searchParams.get("password");
+    apiUrl = `http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=${entity}&login=${login}&password=${password}`;
+  } else if (entity === "auth-admin") {
+    const session_id = url.searchParams.get("session_id");
+    apiUrl = `http://web.fc.utm.my/ttms/auth-admin.php?session_id=${session_id}`;
+  } else {
+    return new Response("Invalid entity", { status: 400 });
+  }
 
   try {
     const response = await fetch(apiUrl, {

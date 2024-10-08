@@ -78,7 +78,7 @@ const Page = () => {
     };
 
     try {
-      // Change this line to call your proxy API
+      // Call the proxy API
       const response = await axios.get("/api/proxy", {
         params: myAuth,
       });
@@ -94,9 +94,13 @@ const Page = () => {
       // Store the session_id in sessionStorage or localStorage
       const session_id = auth[0].session_id;
 
-      // Fetch adminSessionID using the session_id
-      const adminAuthUrl = `http://web.fc.utm.my/ttms/auth-admin.php?session_id=${session_id}`;
-      const adminResponse = await axios.get(adminAuthUrl);
+      // Fetch adminSessionID using the proxy as well
+      const adminResponse = await axios.get("/api/proxy", {
+        params: {
+          entity: "auth-admin",
+          session_id: session_id,
+        },
+      });
       const adminSession_id = adminResponse.data[0].session_id;
 
       const appStorage = {
