@@ -82,11 +82,15 @@ Two options available:
 
 ### 4. Additional Features
 
-#### 4.1 Responsive Design
+### 4.1 Responsive Design
 
 - The system adapts to various screen sizes and devices.
 
-(❌ No screenshot provided – you may want to add one showing the system on a mobile screen.)
+<p align="center">
+  <img src="public/assets/readme-images/mobile-1.JPG" alt="Mobile View 1" width="30%">
+  <img src="public/assets/readme-images/mobile-2.JPG" alt="Mobile View 2" width="30%">
+  <img src="public/assets/readme-images/mobile-3.JPG" alt="Mobile View 3" width="30%">
+</p>
 
 ---
 
@@ -103,12 +107,5 @@ Two options available:
 - Displays a full list of available courses.
 
 ![All Courses](public/assets/readme-images/allCourses.JPG)
-
----
-
-### ✅ **Notes**
-
-- Ensure all images are placed in `/assets/readme-images/` before pushing.
-- If any section is missing a screenshot, consider adding one.
 
 ---
