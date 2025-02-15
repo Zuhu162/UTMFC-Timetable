@@ -9,7 +9,7 @@ const QuickSearch = () => {
   const getData = async () => {
     try {
       const response = await fetch(
-        `http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=pelajar_subjek&no_matrik=${matric}`
+        `${process.env.NEXT_PUBLIC_API_URL}entity=pelajar_subjek&no_matrik=${matric}`
       );
 
       if (!response.ok) {

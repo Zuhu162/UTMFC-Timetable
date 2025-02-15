@@ -43,7 +43,7 @@ const GenerateTimeTable = (props) => {
       const fetchData = async () => {
         const promises = latestCourses.map(async (course) => {
           const response = await fetch(
-            `http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=jadual_subjek&sesi=${latestSem.sesi}&semester=${latestSem.semester}&kod_subjek=${course.kod_subjek}&seksyen=${course.seksyen}`
+            `${process.env.NEXT_PUBLIC_API_URL}entity=jadual_subjek&sesi=${latestSem.sesi}&semester=${latestSem.semester}&kod_subjek=${course.kod_subjek}&seksyen=${course.seksyen}`
           );
           const result = await response.json();
           return result;

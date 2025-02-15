@@ -36,10 +36,9 @@ const Page = () => {
           semester: currentSession.semester,
         };
 
-        const response = await axios.get(
-          "http://web.fc.utm.my/ttms/web_man_webservice_json.cgi",
-          { params }
-        );
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}`, {
+          params,
+        });
 
         if (response.data && Array.isArray(response.data)) {
           setLecturers(response.data);

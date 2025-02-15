@@ -17,7 +17,7 @@ const Page = ({ params }) => {
     const fetchLecturer = async () => {
       try {
         const response = await axios.get(
-          `http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=pensyarah_subjek&no_pekerja=${params.lecturerID}`
+          `${process.env.NEXT_PUBLIC_API_URL}entity=pensyarah_subjek&no_pekerja=${params.lecturerID}`
         );
         if (response.data) {
           setLecturer(response.data);

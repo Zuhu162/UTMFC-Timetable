@@ -23,7 +23,7 @@ const Page = (props) => {
       if (user && user.user_auth && user.user_auth.login_name) {
         const matric = user.user_auth.login_name;
         const response = await fetch(
-          `http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=pelajar_subjek&no_matrik=${matric}`
+          `${process.env.NEXT_PUBLIC_API_URL}entity=pelajar_subjek&no_matrik=${matric}`
         );
 
         const result = await response.json();

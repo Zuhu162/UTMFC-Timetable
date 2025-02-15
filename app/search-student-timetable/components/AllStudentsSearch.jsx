@@ -41,7 +41,7 @@ const AllStudentsSearch = () => {
           };
 
           const response = await axios.get(
-            "http://web.fc.utm.my/ttms/web_man_webservice_json.cgi",
+            `${process.env.NEXT_PUBLIC_API_URL}`,
             { params }
           );
 

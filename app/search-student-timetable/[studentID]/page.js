@@ -17,7 +17,7 @@ const Page = ({ params }) => {
     const fetchStudent = async () => {
       try {
         const response = await axios.get(
-          `http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=pelajar_subjek&no_matrik=${params.studentID}`
+          `${process.env.NEXT_PUBLIC_API_URL}entity=pelajar_subjek&no_matrik=${params.studentID}`
         );
 
         console.log(response.data);
