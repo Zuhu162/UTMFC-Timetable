@@ -18,7 +18,7 @@ Welcome to the UTM Timetable and Space Management System! This application is de
 4. Click the "Login" button.
 5. If your credentials are correct, you'll be redirected to the system. Otherwise, you'll see an error message.
 
-![Login Page](assets/readme-images/login.png)
+![Login Page](assets/readme-images/login.jpeg)
 
 ---
 
@@ -32,7 +32,7 @@ Welcome to the UTM Timetable and Space Management System! This application is de
   - Current session and semester details
 - Navigate through the system using the sidebar (may be hidden on smaller screens)
 
-![Home Page](assets/readme-images/home.png)
+![Home Page](assets/readme-images/home.jpeg)
 
 ---
 
@@ -42,7 +42,7 @@ Welcome to the UTM Timetable and Space Management System! This application is de
 - Use the accordion component to explore different academic periods.
 - Click "View Course Table" to see a searchable table of all your courses.
 
-![My Courses](assets/readme-images/courses.png)
+![My Courses](assets/readme-images/courses.jpeg)
 
 ---
 
@@ -51,7 +51,7 @@ Welcome to the UTM Timetable and Space Management System! This application is de
 - Displays your current academic session's timetable.
 - Shows class times and room numbers for your registered courses.
 
-![Timetable](assets/readme-images/timetable.png)
+![Timetable](assets/readme-images/timetable.jpeg)
 
 ---
 
@@ -66,7 +66,7 @@ Two options available:
    - Use the search function to find specific students.
    - Click "View Timetable" to generate the selected student's timetable.
 
-![Students Table](assets/readme-images/students.png)
+![Students Table](assets/readme-images/students.jpeg)
 
 ---
 
@@ -76,7 +76,7 @@ Two options available:
 - Use the search function to find specific lecturers.
 - Click "View Timetable" to generate the selected lecturer's timetable.
 
-![Lecturers Table](assets/readme-images/lecturers.png)
+![Lecturers Table](assets/readme-images/lecturers.jpeg)
 
 ---
 
@@ -94,7 +94,7 @@ Two options available:
 
 - Toggle between light and dark modes for comfortable viewing.
 
-![Dark Mode](assets/readme-images/darkmode.png)
+![Dark Mode](assets/readme-images/darkmode.jpeg)
 
 ---
 
@@ -102,7 +102,7 @@ Two options available:
 
 - Displays a full list of available courses.
 
-![All Courses](assets/readme-images/allCourses.png)
+![All Courses](assets/readme-images/allCourses.jpeg)
 
 ---
 
